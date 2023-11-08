@@ -9,11 +9,13 @@ import { MatTableModule } from '@angular/material/table';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { ModelsTableComponent } from './models-table/models-table.component';
+import { Error404Component } from './error-404/error-404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModelsTableComponent
+    ModelsTableComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
