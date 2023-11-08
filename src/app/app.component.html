@@ -2,8 +2,4 @@
   <span>Z.E. Vehicles</span>
 </mat-toolbar>
 
-<ul>
-  <li class="text" *ngFor="let model of models$ | async">
-    {{model.name}}
-  </li>
-</ul>
+<app-models-table />
