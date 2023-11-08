@@ -1,0 +1,42 @@
+<h2>New vehicle model</h2>
+
+<div class="input-row">
+    <div>
+        Name:
+    </div>
+    <div>
+        <input type="text" [formControl]="modelNameControl">
+    </div>
+</div>
+<div class="input-row">
+    <div>Brand:</div>
+    <div>
+        <input type="text" [formControl]="modelBrandControl">
+    </div>
+</div>
+<div class="input-row">
+    <div>
+        Type:
+    </div>
+    <div>
+        <input type="text" [formControl]="modelTypeControl">
+    </div>
+</div>
+<div class="input-row">
+    <div>
+        Energy:
+    </div>
+    <div>
+        <input type="text" [formControl]="modelEnergyControl">
+    </div>
+</div>
+
+<div class="input-row">
+    <button mat-raised-button color="warn" aria-label="Cancel create of a new vehicle model" (click)="cancel()">
+        Cancel
+    </button>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <button mat-raised-button color="primary" aria-label="Confirm create of a new vehicle model" (click)="submit()">
+        Create
+    </button>
+</div>

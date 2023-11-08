@@ -18,12 +18,14 @@ export class ModelsTableComponent {
       this.dsModels.data = models;
       return this.dsModels;
     })
-
   );
+
+  newModel: Model | undefined;
 
   constructor(private modelService: ModelService) {}
 
-  newModel() {
-    console.log("Create a new vehicle model with a dedicated form");
+  createModel(newModel: Model) {
+    console.log("New vehicle model: " + newModel);
+    this.modelService.addModel(newModel);
   }
 }
