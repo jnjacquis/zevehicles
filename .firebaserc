@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "zevehicles": {
+      "hosting": {
+        "ZEVehicles": [
+          "zevehicles"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "zevehicles"
+  }
+}
