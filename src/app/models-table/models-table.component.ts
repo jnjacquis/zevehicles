@@ -23,4 +23,7 @@ export class ModelsTableComponent {
 
   constructor(private modelService: ModelService) {}
 
+  newModel() {
+    console.log("Create a new vehicle model with a dedicated form");
+  }
 }
