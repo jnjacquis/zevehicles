@@ -3,8 +3,8 @@ import { Observable, map } from 'rxjs';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
-import { Brand } from '../brand';
-import { BrandService } from '../brand.service';
+import { Brand } from '../../domain/brand';
+import { BrandService } from '../../services/brand.service';
 
 @Component({
   selector: 'app-brands-table',

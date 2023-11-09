@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Firestore, collection, collectionData, addDoc, CollectionReference, DocumentReference } from '@angular/fire/firestore';
 import { Storage, ref, getDownloadURL } from '@angular/fire/storage';
 
-import { Brand } from "./brand";
+import { Brand } from "../domain/brand";
 
 @Injectable({
   providedIn: 'root'

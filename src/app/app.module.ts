@@ -13,13 +13,13 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ModelsTableComponent } from './models-table/models-table.component';
-import { Error404Component } from './error-404/error-404.component';
-import { ModelDetailComponent } from './model-detail/model-detail.component';
+import { ModelsTableComponent } from './views/models-table/models-table.component';
+import { Error404Component } from './views/error-404/error-404.component';
+import { ModelDetailComponent } from './views/model-detail/model-detail.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { BrandsTableComponent } from './brands-table/brands-table.component';
+import { BrandsTableComponent } from './views/brands-table/brands-table.component';
 
 @NgModule({
   declarations: [

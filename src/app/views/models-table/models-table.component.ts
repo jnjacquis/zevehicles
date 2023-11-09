@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { ModelService } from "../model.service";
-import { Model } from "../model";
+import { ModelService } from "../../services/model.service";
+import { Model } from "../../domain/model";
 
 @Component({
   selector: 'app-models-table',

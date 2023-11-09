@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
 
-import { Model } from '../model';
-import { ModelService } from "../model.service";
-import { ProductionState } from "../production-state.enum";
-import { Energy } from "../vehicle-energy.enum";
-import { VehicleType } from "../vehicle-type.enum";
+import { Model } from '../../domain/model';
+import { ModelService } from "../../services/model.service";
+import { ProductionState } from "../../domain/production-state.enum";
+import { Energy } from "../../domain/vehicle-energy.enum";
+import { VehicleType } from "../../domain/vehicle-type.enum";
 
 @Component({
   selector: 'app-model-detail',
