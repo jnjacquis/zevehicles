@@ -4,6 +4,9 @@ import { FormControl } from '@angular/forms';
 
 import { Model } from '../model';
 import { ModelService } from "../model.service";
+import { ProductionState } from "../production-state.enum";
+import { Energy } from "../vehicle-energy.enum";
+import { VehicleType } from "../vehicle-type.enum";
 
 @Component({
   selector: 'app-model-detail',
@@ -21,6 +24,10 @@ export class ModelDetailComponent {
     energy: "H2"
   };
 
+  energies = [ Energy[Energy.Electric], Energy[Energy.Hydrogen]];
+  productionStates = [ ProductionState.Stopped, ProductionState.In_Progress, ProductionState.Future];
+  vehicleTypes = [ VehicleType[VehicleType.Car], VehicleType[VehicleType.Truck]];
+
   model: Model | undefined;
 
   modelNameControl: FormControl = new FormControl(this.defaultModel.name);
@@ -28,9 +35,7 @@ export class ModelDetailComponent {
   modelTypeControl: FormControl = new FormControl(this.defaultModel.type);
   modelEnergyControl: FormControl = new FormControl(this.defaultModel.energy);
 
-  constructor(private router: Router, private route: ActivatedRoute, private service: ModelService) { 
-    console.log('Active  route: ' + route)
-  }
+  constructor(private router: Router, private route: ActivatedRoute, private service: ModelService) { }
 
   cancel() {
     this.router.navigateByUrl(this.parentUrl);
