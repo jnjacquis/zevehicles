@@ -1,0 +1,9 @@
+.full-width-table {
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

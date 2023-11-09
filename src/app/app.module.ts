@@ -16,13 +16,18 @@ import { AppComponent } from './app.component';
 import { ModelsTableComponent } from './models-table/models-table.component';
 import { Error404Component } from './error-404/error-404.component';
 import { ModelDetailComponent } from './model-detail/model-detail.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { BrandsTableComponent } from './brands-table/brands-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModelsTableComponent,
     Error404Component,
-    ModelDetailComponent
+    ModelDetailComponent,
+    BrandsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { ModelDetailComponent } from './model-detail/model-detail.component';
     MatIconModule,
     MatSelectModule,
     provideFirebaseApp(() => initializeApp({"projectId":"zevehicles","appId":"1:872207582760:web:dca5f9e6fa712772da971d","storageBucket":"zevehicles.appspot.com","apiKey":"AIzaSyAzuumP1_iJOCJAMEXzm16tIcS3LuU5GLE","authDomain":"zevehicles.firebaseapp.com","messagingSenderId":"872207582760","measurementId":"G-0EK5MG8TQR"})),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

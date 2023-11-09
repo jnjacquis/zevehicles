@@ -1,7 +1,5 @@
 import firebase from 'firebase';
-import firestore from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +14,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-export default firebase.firestore();
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
+
+export default firebase;
