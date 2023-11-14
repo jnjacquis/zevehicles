@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { importProvidersFrom } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -49,7 +51,7 @@ import { BrandsTableComponent } from './views/brands-table/brands-table.componen
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [ importProvidersFrom(HttpClientModule) ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
