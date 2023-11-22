@@ -1,8 +1,8 @@
-import { Injectable, inject } from '@angular/core';
-import { Observable, config } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Firestore, collection, collectionData, addDoc, CollectionReference, DocumentReference } from '@angular/fire/firestore';
-import { Storage, ref, getDownloadURL, listAll, ListResult, StorageReference } from '@angular/fire/storage';
+import { Injectable, inject, Signal } from '@angular/core';
+import { Observable, from, of, combineLatest } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { Firestore, CollectionReference, collectionData, collection } from '@angular/fire/firestore';
+import { Storage, StorageReference, ListResult, ref, listAll, getDownloadURL } from '@angular/fire/storage';
 
 import { Brand } from "../domain/brand";
 
@@ -13,127 +13,69 @@ export class BrandService {
 
   private firestore: Firestore = inject(Firestore);
   private storage: Storage = inject(Storage);
-  brands$: Observable<Brand[]>;
-  brandsRef: CollectionReference;
 
-  constructor(private http: HttpClient) {
-    this.brandsRef = collection(this.firestore, 'brands')
-    this.brands$ = collectionData(this.brandsRef) as Observable<Brand[]>;
+  //private brandsRef: CollectionReference = collection(this.firestore, 'brands');
+  brands$!: Observable<Brand[]>;
+  //brands: Signal<Brand[]>;
 
-    this.brands$.subscribe(brands => this.getBrandsLogo(brands));
+  //private brandLogoUrls$ = from(this.getBrandsLogoUrl());
+
+
+
+  constructor() {
+    const brandsRef = collection(this.firestore, 'brands');
+    const brands$ = collectionData(brandsRef) as Observable<Brand[]>;
+    //this.brands = toSignal(this.brands$, {initialValue: [] as Brand[]});
+
+    const manufsRef = ref(this.storage, 'manufs');
+    const brandLogoUrls$ = from(listAll(manufsRef));
+
+    const combs$ = combineLatest([
+      brands$,
+      brandLogoUrls$
+    ]);
+    //const combs = await this.combine(brands$, brandLogoUrls$);
+
+    let data: Brand[] = [];
+
+    combs$.subscribe(async results => {
+      data = await this.mapBrandUrl(results[0], results[1].items);
+      
+    });
+
+    this.brands$ = of(data);
   }
 
-  getBrands(): Observable<Brand[]> {
-    return this.brands$;
+  async combine(brands: Observable<Brand[]>, brandLogoUrls: Observable<ListResult>) {
+    return combineLatest([
+      brands,
+      brandLogoUrls
+    ]);
   }
 
-  getBrandsLogo(brands: Brand[]) {
+  async mapBrandUrl(brands: Brand[], storageRefs: StorageReference[]) {
+    // Get download Url for all storage refs
+    let logoUrls$ = this.getLogoUrls(storageRefs);
+    let logoUrls: string[] = await logoUrls$;
+
+    // Loop on brands to map the corresponding storage ref containing the logo url
     brands.forEach(brand => {
-      console.log('Brand name: ' + brand.name + ' - Logo url: ' + brand.logoUrl);
+      const brandNameLower = brand.name.toLowerCase() + '.png';
+
+      let match = logoUrls.find(logoUrl => logoUrl.indexOf(brandNameLower) != -1);
+      if (match) {
+        brand.url = match as string;
+      }
     });
-
-    const storageResult = this.getAllStorageFilesInManufacturers();
-
-    let urls: Promise<string>[] = [];
-    let storageItems: StorageReference[] = [];
-    storageResult.then((res) => {
-      storageItems = res.items
-      console.log(storageItems);
-
-      // Loop on brands name to get the correspon
-      brands.forEach(brand => {
-        storageItems.filter((item) => {
-          //console.log('Compare ' + brand.logoUrl + ' and ' + item.fullPath);
-          //item.fullPath == brand.logoUrl;
-          if (brand.logoUrl == item.fullPath) {
-            // Replace the logo Url with the real one in Firebase storage
-            getDownloadURL(item).then((url) => {
-              //console.log('Real Url: ' + url);
-              brand.logoUrl = url;
-              console.log('Brand url has been reassigned with ' + brand.logoUrl);
-            });
-          }
-        })
-      });
-    });
-
-
-
-
-    /*storageItems.filterforEach(storageItem => {
-      storageItem.
-      urls.getDownloadURL(storageItem);
-    });*/
+    brands.forEach(brand => console.log('Url: ' + brand.url));
+    return brands;
   }
 
-  downloadImage(url: string) {
-    this.http.get(url);
+  getLogoUrls(storageRefs: StorageReference[]) {
+    let urls$: Promise<string>[] = [];
+    storageRefs.forEach(ref => {
+      urls$.push(getDownloadURL(ref));
+    })
+    return Promise.all(urls$);
   }
-
-  matchBrandName(name: string, url$: Promise<string>) {
-    ///url$.
-  }
-
-  getAllStorageFilesInManufacturers(): Promise<ListResult> {
-    console.log('Get all storage files in /manufs')
-    const manufacturersLogoRef = ref(this.storage, 'manufs');
-    //const manufLogos: Promise<ListResult> = 
-    return listAll(manufacturersLogoRef);
-    /*let storerefs: StorageReference[] = [];
-    manufLogos
-      .then((res) => {
-        storerefs = res.items;
-        storerefs.forEach(storeref => {
-          getDownloadURL(storeref).then(downloadUrl => {
-            console.log(downloadUrl);
-
-          });
-        });
-      });
-    */
-  }
-
-  downloadAll() {
-    console.log('Start downloading files in storage')
-    const storageRef = ref(this.storage);
-    console.log('Storage ref: ' + storageRef);
-    const manufacturersLogoRef = ref(storageRef, 'manufs');
-    listAll(manufacturersLogoRef)
-      .then((res) => {
-        res.prefixes.forEach((folderRef) => {
-          console.log('Folder ref: ' + folderRef);
-        });
-        res.items.forEach((itemRef) => {
-          console.log('Item ref: ' + itemRef);
-          // Get the download URL
-          getDownloadURL(itemRef)
-            .then((url) => {
-              //console.log(url);
-              this.http.get(url)
-                .subscribe((res) => {
-                  console.log(res);
-                })
-            })
-            .catch((error) => {
-              switch (error.code) {
-                case 'storage/object-not-found':
-                  console.log("Error: file not found");
-                  break;
-                case 'storage/unauthorized':
-                  console.log("Error: unauthorized");
-                  break;
-                case 'storage/canceled':
-                  console.log("Error: download canceled");
-                  break;
-                case 'storage/unknown':
-                  console.log("Error: storage unknown");
-                  break;
-              }
-            });
-        })
-      });
-  }
-
-
-
 }

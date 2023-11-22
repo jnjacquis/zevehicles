@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 mat-dialog-title>Model {{ model.brand }} {{ model.name }}</h1>
+    <hr>
+    <div mat-dialog-content>
+        <table style="width: 100%;">
+            <tr>
+                <th>Type</th>
+                <th>Energy</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" [fontIcon]="getVehicleTypeIconName()"></mat-icon>
+                </td>
+                <td style="text-align: center;">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" [fontIcon]="getEnergyIconName()"></mat-icon>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <mat-dialog-actions class="actions-bar">
+        <button mat-button mat-dialog-close>Cancel</button>
+    </mat-dialog-actions>
+</div>
