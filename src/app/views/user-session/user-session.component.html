@@ -1,0 +1,14 @@
+<div *ngIf="this.userLogged(); else elseBlock">
+    <button mat-button (click)="logout()" aria-label="Show user profile">
+        <!--<img src="/assets/user-profile-icon.svg" style="width: 24px; vertical-align: middle;"/>-->
+        Logout
+    </button>
+</div>
+<ng-template #elseBlock>
+    <div>
+        <button mat-button (click)="login()" aria-label="Login button">
+            Login | Register
+        </button>
+    </div>
+</ng-template>
+   
