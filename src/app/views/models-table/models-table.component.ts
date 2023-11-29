@@ -13,7 +13,7 @@ import { ModelCardComponent } from '../model-card/model-card.component';
   styleUrls: ['./models-table.component.css']
 })
 export class ModelsTableComponent {
-  displayedColumns: string[] = ['select', 'name', 'brand', 'type', 'energy', 'actions'];
+  displayedColumns: string[] = ['name', 'brand', 'type', 'energy', 'actions'];
   dsModels: MatTableDataSource<Model> = new MatTableDataSource();
   dsModels$: Observable<MatTableDataSource<Model>> = this.modelService.models$.pipe(
     map(models => {

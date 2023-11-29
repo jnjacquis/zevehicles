@@ -13,6 +13,15 @@
     padding: 10px;
 }
 
+table {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+h1 {
+  color: black;
+}
+
 .example-label {
     display: table-cell;
     font-size: 14px;
