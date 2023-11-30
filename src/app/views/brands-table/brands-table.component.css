@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+h1 {
+  color: black;
+}
+
 img.logo {
     max-width: 24px;
     max-height: 24px;

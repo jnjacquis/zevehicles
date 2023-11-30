@@ -1,4 +1,4 @@
-import { Component, computed, ViewChild } from '@angular/core';
+import { Component, computed, ViewChild, OnInit } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -29,16 +29,16 @@ export class BrandsTableComponent {
 
   constructor(private service: BrandService) { }
 
-  /*ngAfterViewInit() {
-    if (this.service.brands$ != undefined) {
-      this.service.brands$.subscribe(data => {
-        this.dsBrands.data = data;
-      });
-    }
-  }*/
+  ngOnInit() {
+    this.dsBrands.filterPredicate = function(data, filter: string): boolean {
+      return data.name.toLowerCase().includes(filter);
+    };
+  }
 
-  filterByName(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    //this.dsBrands.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: Event) {
+    let filterValue = (event.target as HTMLInputElement).value;
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dsBrands.filter = filterValue;
   }
 }
