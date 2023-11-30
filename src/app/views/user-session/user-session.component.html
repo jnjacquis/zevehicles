@@ -1,4 +1,5 @@
 <div *ngIf="this.userLogged(); else elseBlock">
+    <img src="/assets/user-profile-icon.svg" style="width: 24px; vertical-align: middle;"/>&nbsp;
     <button mat-button (click)="logout()" aria-label="Show user profile">
         <!--<img src="/assets/user-profile-icon.svg" style="width: 24px; vertical-align: middle;"/>-->
         Logout
@@ -6,7 +7,7 @@
 </div>
 <ng-template #elseBlock>
     <div>
-        <button mat-button (click)="login()" aria-label="Login button">
+        <button mat-button (click)="openLoginRegisterDialog()" aria-label="Login button">
             Login | Register
         </button>
     </div>

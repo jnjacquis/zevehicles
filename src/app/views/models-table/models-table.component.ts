@@ -52,6 +52,7 @@ export class ModelsTableComponent {
 
   openDialog(model: Model): void {
     const dialogRef = this.dialog.open(ModelCardComponent, {
+      //height: '400px',
       data: model,
     });
 

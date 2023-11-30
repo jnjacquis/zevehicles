@@ -1,0 +1,10 @@
+<div mat-dialog-content class="container">
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="Login">
+            <app-login [formGroup]="loginForm" />
+        </mat-tab>
+        <mat-tab label="Register">
+            <app-register [formGroup]="registerForm" />
+        </mat-tab>
+    </mat-tab-group>
+</div>

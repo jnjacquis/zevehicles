@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +27,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrandsTableComponent } from './views/brands-table/brands-table.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { ModelCardComponent } from './views/model-card/model-card.component';
+import { AuthenticationService } from './services/authentication.service';
+import { UserSessionComponent } from './views/user-session/user-session.component';
+import { LoginRegisterComponent } from './views/login-register/login-register.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +45,11 @@ import { ModelCardComponent } from './views/model-card/model-card.component';
     Error404Component,
     ModelDetailComponent,
     BrandsTableComponent,
-    ModelCardComponent
+    ModelCardComponent,
+    UserSessionComponent,
+    LoginRegisterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -49,17 +62,21 @@ import { ModelCardComponent } from './views/model-card/model-card.component';
     MatIconModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
     provideFirebaseApp(() => initializeApp({ "projectId": "zevehicles", "appId": "1:872207582760:web:dca5f9e6fa712772da971d", "storageBucket": "zevehicles.appspot.com", "apiKey": "AIzaSyAzuumP1_iJOCJAMEXzm16tIcS3LuU5GLE", "authDomain": "zevehicles.firebaseapp.com", "messagingSenderId": "872207582760", "measurementId": "G-0EK5MG8TQR" })),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    provideAuth(() => getAuth()),
     MatPaginatorModule,
     MatSortModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
-  providers: [ importProvidersFrom(HttpClientModule) ],
+  providers: [ importProvidersFrom(HttpClientModule), AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

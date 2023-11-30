@@ -23,7 +23,22 @@ export class UserSessionComponent {
   authenticationService = inject(AuthenticationService);
   userLogged = this.authenticationService.userLogged;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openLoginRegisterDialog(): void {
+    const dialogRef = this.dialog.open(LoginRegisterComponent, {
+      //height: '400px',
+      data: this.user,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.user = result;
+    });
+  }
+
+  showUserProfile() {
+
+  }
 
   loginLogoutEffect = effect(() => {
     console.log("User logged eff: ", this.userLogged());

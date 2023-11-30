@@ -1,0 +1,12 @@
+.container {
+    min-width: 350px;
+    min-height: 500px;
+}
+
+form {
+    padding-top: 24px;
+}
+
+.full-width {
+    width: 100%;
+}

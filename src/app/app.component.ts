@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { AuthenticationService } from "./services/authentication.service";
+import { LoginComponent } from "./views/login/login.component";
+import { RegisterComponent } from "./views/register/register.component";
+import { User } from "./domain/user";
 
 @Component({
   selector: 'app-root',
@@ -10,5 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class AppComponent {
 
   title = 'ZEVehicles';
+
+  constructor() {}
 
 }

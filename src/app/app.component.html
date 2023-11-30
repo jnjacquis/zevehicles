@@ -1,28 +1,28 @@
-<mat-toolbar color="primary">
-  <span>Z.E. Vehicles</span>
-</mat-toolbar>
+<div class="container">
+  <mat-toolbar color="primary">
+    <span>Z.E. Vehicles</span>
+    <span class="example-spacer"></span>
+    <app-user-session />
+  </mat-toolbar>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>
-    <mat-list role="list">
-      <mat-list-item role="listitem"  routerLink="/brands">
-        <span class="material-symbols-outlined">
-          nest_gale_wifi
-        </span>&nbsp;Brands
-      </mat-list-item>
-      <mat-list-item role="listitem" routerLink="/models">
-        <span class="material-symbols-outlined">
-          source_environment
-        </span>&nbsp;Models
-      </mat-list-item>
-      <!--<mat-list-item role="listitem" routerLink="">
-        <span class="material-symbols-outlined">
-          directions_car
-        </span>&nbsp;Vehicles
-      </mat-list-item>-->
-    </mat-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container style="display: inline;">
+    <mat-sidenav mode="side" opened>
+      <mat-list role="list">
+        <mat-list-item role="listitem" routerLink="/brands">
+          Brands
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/models">
+          Models
+        </mat-list-item>
+        <!--<mat-list-item role="listitem" routerLink="">
+          <span class="material-symbols-outlined">
+            directions_car
+          </span>&nbsp;Vehicles
+        </mat-list-item>-->
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

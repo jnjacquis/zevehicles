@@ -37,5 +37,20 @@ export class AuthenticationService {
     this.userLogged.set(false);
   }
 
+  register(username: string, email: string, password: string) {
+    createUserWithEmailAndPassword(this.auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        this.user = userCredential.user;
+        this.userLogged.set(true);
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error('User authentication with ' + email + ': ' + errorCode + ' ' + errorMessage);
+        this.user = undefined;
+        this.userLogged.set(false);
+      });
+  }
 }
 
