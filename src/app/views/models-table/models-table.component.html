@@ -1,4 +1,4 @@
-<h1 class="box">Models</h1>
+<h1 class="box" i18n>Models</h1>
 
 <div class="example-button-row">
   <div class="example-flex-container">
@@ -14,25 +14,25 @@
 
   <!-- Model name column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell i18n *matHeaderCellDef>Name</th>
     <td mat-cell *matCellDef="let model"> {{model.name}} </td>
   </ng-container>
 
   <!-- Brand name column -->
   <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef> Brand </th>
+    <th mat-header-cell i18n *matHeaderCellDef>Brand</th>
     <td mat-cell *matCellDef="let model"> {{model.brand}} </td>
   </ng-container>
 
   <!-- Type column -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Type </th>
+    <th mat-header-cell i18n *matHeaderCellDef>Type</th>
     <td mat-cell *matCellDef="let model"> {{model.type}} </td>
   </ng-container>
 
   <!-- Energy Column -->
   <ng-container matColumnDef="energy">
-    <th mat-header-cell *matHeaderCellDef> Energy </th>
+    <th mat-header-cell i18n *matHeaderCellDef>Energy</th>
     <td mat-cell *matCellDef="let model"> {{model.energy}} </td>
   </ng-container>
 

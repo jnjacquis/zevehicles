@@ -1,26 +1,22 @@
-<h2>New vehicle model</h2>
+<h2 i18n>New vehicle model</h2>
 
 <div class="input-row">
-    <div>
-        Name:
-    </div>
+    <div i18n>Name:</div>
     <div>
         <input type="text" [formControl]="modelNameControl">
     </div>
 </div>
 <div class="input-row">
-    <div>Brand:</div>
+    <div i18n>Brand:</div>
     <div>
         <input type="text" [formControl]="modelBrandControl">
     </div>
 </div>
 <div class="input-row">
-    <div>
-        Type:
-    </div>
+    <div i18n>Type:</div>
     <div>
         <mat-form-field>
-            <mat-label>Select a vehicle type</mat-label>
+            <mat-label i18n>Select a vehicle type</mat-label>
             <mat-select [formControl]="modelTypeControl">
                 <mat-option *ngFor="let vehicleType of vehicleTypes" [value]="vehicleType">{{ vehicleType }}</mat-option>
             </mat-select>
@@ -28,12 +24,10 @@
     </div>
 </div>
 <div class="input-row">
-    <div>
-        Energy:
-    </div>
+    <div i18n>Energy:</div>
     <div>
         <mat-form-field>
-            <mat-label>Select an energy</mat-label>
+            <mat-label i18n>Select an energy</mat-label>
             <mat-select [formControl]="modelEnergyControl">
                 <mat-option *ngFor="let energy of energies" [value]="energy">{{ energy }}</mat-option>
             </mat-select>
@@ -42,11 +36,7 @@
 </div>
 
 <div class="input-row">
-    <button mat-raised-button color="warn" aria-label="Cancel create of a new vehicle model" (click)="cancel()">
-        Cancel
-    </button>
+    <button mat-raised-button i18n color="warn" aria-label="Cancel create of a new vehicle model" (click)="cancel()">Cancel</button>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <button mat-raised-button color="primary" aria-label="Confirm create of a new vehicle model" (click)="submit()">
-        Create
-    </button>
+    <button mat-raised-button i18n color="primary" aria-label="Confirm create of a new vehicle model" (click)="submit()">Create</button>
 </div>
