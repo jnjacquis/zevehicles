@@ -1,0 +1,23 @@
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let model of models$ | async">
+        <mat-card class="card">
+            <mat-card-title>{{ model.brand }} {{ model.name }}</mat-card-title>
+            <mat-card-content>
+                <table style="width: 100%;">
+                    <tr>
+                        <th i18n>Type</th>
+                        <th i18n>Energy</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <mat-icon [fontIcon]="getVehicleTypeIconName(model)"></mat-icon>
+                        </td>
+                        <td style="text-align: center;">
+                            <mat-icon [fontIcon]="getEnergyIconName(model)"></mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

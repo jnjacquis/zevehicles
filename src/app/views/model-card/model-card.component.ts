@@ -21,7 +21,7 @@ export class ModelCardComponent {
   getEnergyIconName() {
     //console.log('Vehicle energy: ' + this.model.energy);
     const vehicleEnergy = (<any>Energy)[this.model.energy];
-    console.log('Energy: ' + vehicleEnergy);
+    //console.log('Energy: ' + vehicleEnergy);
     return getEnergyMatIconName(vehicleEnergy);
   }
 

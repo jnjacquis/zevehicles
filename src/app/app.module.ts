@@ -41,7 +41,6 @@ import { RegisterComponent } from './views/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ModelsTableComponent,
     Error404Component,
     ModelDetailComponent,
     BrandsTableComponent,
@@ -64,6 +63,7 @@ import { RegisterComponent } from './views/register/register.component';
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
+    ModelsTableComponent,
     provideFirebaseApp(() => initializeApp({ "projectId": "zevehicles", "appId": "1:872207582760:web:dca5f9e6fa712772da971d", "storageBucket": "zevehicles.appspot.com", "apiKey": "AIzaSyAzuumP1_iJOCJAMEXzm16tIcS3LuU5GLE", "authDomain": "zevehicles.firebaseapp.com", "messagingSenderId": "872207582760", "measurementId": "G-0EK5MG8TQR" })),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),

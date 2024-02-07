@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule, NgClass } from '@angular/common';
 import { Observable, map } from 'rxjs';
 import { MatRow, MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ModelService } from "../../services/model.service";
 import { Model } from "../../domain/model";
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ModelCardComponent } from '../model-card/model-card.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-models-table',
+  standalone: true,
+  imports: [CommonModule,NgClass,MatButtonModule,MatIconModule,MatTableModule],
   templateUrl: './models-table.component.html',
   styleUrls: ['./models-table.component.css']
 })
@@ -34,7 +40,7 @@ export class ModelsTableComponent {
 
   onSelect(model: Model) {
     this.selection.select(model);
-    console.log('Selected row data: ' + this.selection.selected[0].name);
+    //console.log('Selected row data: ' + this.selection.selected[0].name);
     this.openDialog(model);
   }
 

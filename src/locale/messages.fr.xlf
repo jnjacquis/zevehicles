@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="6759810606700837622" datatype="html">
         <source>Enter your password here</source>
-        <target>Entrer votre mot de passe</target>
+        <target>Saisisser votre mot de passe ici</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/login/login.component.html</context>
           <context context-type="linenumber">10</context>
@@ -94,16 +94,28 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1141886420788473147" datatype="html">
+        <source>Model</source>
+        <target>Modèle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/model-card/model-card.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8650499415827640724" datatype="html">
         <source>Type</source>
         <target>Type</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/model-card/model-card.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/models-grid/models-grid.component.html</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/models-table/models-table.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="273949409065292025" datatype="html">
@@ -111,11 +123,23 @@
         <target>Energie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/model-card/model-card.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/models-grid/models-grid.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/models-table/models-table.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7819314041543176992" datatype="html">
+        <source>Close</source>
+        <target>Fermer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/model-card/model-card.component.html</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="420684183791851832" datatype="html">
@@ -152,7 +176,7 @@
       </trans-unit>
       <trans-unit id="5348669061646478772" datatype="html">
         <source>Select a vehicle type</source>
-        <target>Choisisser le type de véhicule</target>
+        <target>Sélectionner un type de véhicule</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/model-detail/model-detail.component.html</context>
           <context context-type="linenumber">19</context>
@@ -168,7 +192,7 @@
       </trans-unit>
       <trans-unit id="8470568955251715825" datatype="html">
         <source>Select an energy</source>
-        <target>Choisisser une énergie</target>
+        <target>Sélectionner une énergie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/model-detail/model-detail.component.html</context>
           <context context-type="linenumber">30</context>
@@ -195,12 +219,12 @@
         <target>Marque</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/models-table/models-table.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4327001039034401261" datatype="html">
         <source>Enter your username</source>
-        <target>Saisisser votre nom d'utilisateur</target>
+        <target>Entrer votre nom d'utilisateur</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/register/register.component.html</context>
           <context context-type="linenumber">4</context>
@@ -208,18 +232,10 @@
       </trans-unit>
       <trans-unit id="2772023564304193657" datatype="html">
         <source>Enter your password</source>
-        <target>Saisisser votre mot de passe</target>
+        <target>Entrer votre mot de passe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/register/register.component.html</context>
           <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3301086086650990787" datatype="html">
-        <source>Register</source>
-        <target>S'enregistrer</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/views/register/register.component.html</context>
-          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3797778920049399855" datatype="html">

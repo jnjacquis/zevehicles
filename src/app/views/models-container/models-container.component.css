@@ -1,0 +1,38 @@
+.wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1,
+h2 {
+    color: black;
+}
+
+.button-row {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    vertical-align: middle;
+}
+
+/*.button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}*/
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}

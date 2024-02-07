@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <h1 i18n class="box">Models</h1>
+
+    <div class="button-row">
+        <mat-button-toggle-group #group="matButtonToggleGroup" [(value)]="viewMode">
+            <mat-button-toggle (change)="onViewModeChange($event.value)" value="list" aria-label="List view mode">
+                <mat-icon>list</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle (change)="onViewModeChange($event.value)" value="grid" aria-label="Grid view mode">
+                <mat-icon>grid_view</mat-icon>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <div class="button-container">
+            <button mat-fab color="primary" aria-label="Create new vehicle model" routerLink="/model">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="viewMode === 'list'; then listBlock else gridBlock"></div>
+    <ng-template #listBlock>
+        <app-models-table></app-models-table>
+    </ng-template>
+    <ng-template #gridBlock>
+        <app-models-grid></app-models-grid>
+    </ng-template>
+</div>
