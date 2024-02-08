@@ -9,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
-  styleUrls: ['./login-register.component.css']
+  styleUrls: ['./login-register.component.scss']
 })
 export class LoginRegisterComponent {
 

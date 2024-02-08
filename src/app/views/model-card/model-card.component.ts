@@ -13,7 +13,7 @@ import { VehicleType, getVehicleTypeMatIconName } from 'src/app/domain/vehicle-t
 @Component({
   selector: 'app-model-card',
   templateUrl: './model-card.component.html',
-  styleUrls: ['./model-card.component.css']
+  styleUrls: ['./model-card.component.scss']
 })
 export class ModelCardComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public model: Model) { }

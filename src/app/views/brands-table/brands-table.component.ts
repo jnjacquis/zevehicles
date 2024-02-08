@@ -11,7 +11,7 @@ import { BrandService } from '../../services/brand.service';
 @Component({
   selector: 'app-brands-table',
   templateUrl: './brands-table.component.html',
-  styleUrls: ['./brands-table.component.css']
+  styleUrls: ['./brands-table.component.scss']
 })
 export class BrandsTableComponent {
   @ViewChild(MatSort) sort!: MatSort;

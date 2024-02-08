@@ -13,7 +13,7 @@ import { ModelsGridComponent } from "../models-grid/models-grid.component";
   standalone: true,
   imports: [RouterModule, NgIf, MatButtonModule, MatButtonToggleModule, MatIconModule, ModelsTableComponent, ModelsGridComponent],
   templateUrl: './models-container.component.html',
-  styleUrl: './models-container.component.css'
+  styleUrl: './models-container.component.scss'
 })
 export class ModelsContainerComponent {
   viewMode = 'list';

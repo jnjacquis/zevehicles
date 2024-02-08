@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
   standalone: true,
   imports: [CommonModule,NgClass,MatButtonModule,MatIconModule,MatTableModule],
   templateUrl: './models-table.component.html',
-  styleUrls: ['./models-table.component.css']
+  styleUrls: ['./models-table.component.scss']
 })
 export class ModelsTableComponent {
   displayedColumns: string[] = ['name', 'brand', 'type', 'energy', 'actions'];

@@ -16,7 +16,7 @@ import { VehicleType, getVehicleTypeMatIconName } from 'src/app/domain/vehicle-t
   imports: [CommonModule,MatGridListModule,MatCardModule,MatIconModule],
   providers: [ModelService],
   templateUrl: './models-grid.component.html',
-  styleUrl: './models-grid.component.css'
+  styleUrl: './models-grid.component.scss'
 })
 export class ModelsGridComponent {
 

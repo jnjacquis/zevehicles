@@ -10,7 +10,7 @@ import { LoginRegisterComponent } from '../login-register/login-register.compone
 @Component({
   selector: 'app-user-session',
   templateUrl: './user-session.component.html',
-  styleUrls: ['./user-session.component.css']
+  styleUrls: ['./user-session.component.scss']
 })
 export class UserSessionComponent {
 
