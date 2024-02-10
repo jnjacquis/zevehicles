@@ -13,10 +13,11 @@
   padding: 10px;
 }
 
-table {
-  margin-left: 12px;
-  margin-right: 12px;
-  margin-top: 12px;
+table.centered {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-width: auto;
 }
 
 h1 {

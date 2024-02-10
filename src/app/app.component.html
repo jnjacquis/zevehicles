@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar color="primary">
-    <span>Z.E. Vehicles</span>
+    <span routerLink="/" class="app-title">Z.E. Vehicles</span>
     <span class="example-spacer"></span>
     <app-user-session />
   </mat-toolbar>
@@ -10,11 +10,6 @@
       <mat-list role="list">
         <mat-list-item i18n role="listitem" routerLink="/brands">Brands</mat-list-item>
         <mat-list-item i18n role="listitem" routerLink="/models">Models</mat-list-item>
-        <!--<mat-list-item role="listitem" routerLink="">
-          <span class="material-symbols-outlined">
-            directions_car
-          </span>&nbsp;Vehicles
-        </mat-list-item>-->
       </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>

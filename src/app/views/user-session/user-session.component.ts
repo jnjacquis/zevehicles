@@ -2,8 +2,6 @@ import { Component, effect, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AuthenticationService } from "../../services/authentication.service";
-import { LoginComponent } from "../../views/login/login.component";
-import { RegisterComponent } from "../../views/register/register.component";
 import { User } from "../../domain/user";
 import { LoginRegisterComponent } from '../login-register/login-register.component';
 
