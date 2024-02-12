@@ -35,7 +35,7 @@ export class ModelsTableComponent {
 
   createModel(newModel: Model) {
     console.log("New vehicle model: " + newModel);
-    this.modelService.addModel(newModel);
+    this.modelService.createNewModel(newModel);
   }
 
   onSelect(model: Model) {

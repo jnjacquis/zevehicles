@@ -53,7 +53,7 @@ export class ModelDetailComponent {
       type: this.modelTypeControl.value,
       energy: this.modelEnergyControl.value
     };
-    this.service.addModel(newModel);
+    this.service.createNewModel(newModel);
 
     this.router.navigateByUrl(this.parentUrl);
   }

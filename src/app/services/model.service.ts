@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from, throwError } from 'rxjs';
 import { Firestore, collection, collectionData, addDoc, CollectionReference, DocumentReference } from '@angular/fire/firestore';
 
 import { Model } from "../domain/model";
@@ -10,6 +10,7 @@ import { Model } from "../domain/model";
 export class ModelService {
 
   private firestore: Firestore = inject(Firestore);
+
   models$: Observable<Model[]>;
   modelsRef: CollectionReference;
 
@@ -18,13 +19,26 @@ export class ModelService {
     this.models$ = collectionData(this.modelsRef) as Observable<Model[]>;
   }
 
-  addModel(model: Model) {
-    console.log('Add new model');
-    if (!model) return;
+  getModels(): Observable<Model[]> {
+    // Remove pipe and delay for production environment 
+    return this.models$;
+  }
+
+  createNewModel(model: Model): Observable<any> {
+    if (!model) {
+      throwError(() => {
+        return new Error("A new vehicle model is required");
+      });
+    }
     console.log('Continue with the real model');
 
-    addDoc(this.modelsRef, model).then((documentReference: DocumentReference) => {
-        // the documentReference provides access to the newly created document
-    });
-}
+    return from(addDoc(this.modelsRef, model));
+    /*  .then((documentReference: DocumentReference) => {
+        console.log("New document created on Firestore: ", documentReference);
+      })
+      .catch((error) => {
+        console.error("Error when adding document: ", error);
+      });
+      */
+  }
 }
