@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-
-import { User } from '@angular/fire/auth';
-
-import { LoginComponent } from "../login/login.component";
-import { RegisterComponent } from "../register/register.component";
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-login-register',
+  standalone: true,
+  imports: [FormsModule,ReactiveFormsModule,MatTabsModule,LoginComponent,LoginRegisterComponent],
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.scss']
 })

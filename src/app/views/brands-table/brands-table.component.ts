@@ -1,15 +1,18 @@
-import { Component, computed, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Observable, map } from 'rxjs';
 
-import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { MatFormField, MatFormFieldAppearance } from '@angular/material/form-field';
+import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 import { Brand } from '../../domain/brand';
 import { BrandService } from '../../services/brand.service';
 
 @Component({
   selector: 'app-brands-table',
+  standalone: true,
+  imports: [CommonModule, MatTableModule, MatTable],
+  providers: [MatTableDataSource],
   templateUrl: './brands-table.component.html',
   styleUrls: ['./brands-table.component.scss']
 })

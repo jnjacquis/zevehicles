@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogTitle,
-  MatDialogContent,
+  MatDialogModule,
+  MAT_DIALOG_DATA
 } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { Model } from 'src/app/domain/model';
 import { Energy, getEnergyMatIconName } from 'src/app/domain/vehicle-energy.enum';
@@ -12,6 +12,8 @@ import { VehicleType, getVehicleTypeMatIconName } from 'src/app/domain/vehicle-t
 
 @Component({
   selector: 'app-model-card',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, MatIconModule],
   templateUrl: './model-card.component.html',
   styleUrls: ['./model-card.component.scss']
 })

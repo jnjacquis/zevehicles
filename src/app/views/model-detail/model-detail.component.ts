@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 import { Model } from '../../domain/model';
 import { ModelService } from "../../services/model.service";
@@ -10,6 +12,8 @@ import { VehicleType } from "../../domain/vehicle-type.enum";
 
 @Component({
   selector: 'app-model-detail',
+  standalone: true,
+  imports: [ReactiveFormsModule,MatButtonModule,MatSelectModule],
   templateUrl: './model-detail.component.html',
   styleUrls: ['./model-detail.component.scss']
 })
